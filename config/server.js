@@ -1,0 +1,45 @@
+import express from "express"
+import cors from "cors"
+import helmet from "helmet";
+import morgan from "morgan";
+import { dbConnection } from "./mongo.js";
+
+import authRoutes from "../src/auth/auth.routes.js"
+import userRoutes from "../src/user/user.routes.js"
+
+const middlewares = (app)=>{
+    app.use(express.urlencoded({extended: false})) 
+    app.use(express.json()) 
+    app.use(cors()) 
+    app.use(helmet()) 
+    app.use(morgan('dev')) 
+}
+
+const routes = (app)=>{
+    app.use('/tiendaOnline/auth', authRoutes)
+    app.use('/tiendaOnline/users', userRoutes)
+}
+
+const conectarDb = async () => {
+    try {
+        await dbConnection();
+        console.log('DB Online');
+    } catch (error) {
+        console.log('Error al conectarse a la DB',error)
+    }
+}
+
+export const initServer = ()=>{
+    const app = express() 
+    const port= process.env.PORT || 3002
+
+    try {
+        middlewares(app)
+        conectarDb()
+        routes(app)
+        app.listen(port)
+        console.log(`Server running on port ${port}`)
+    } catch (error) {
+        console.log(`Server init failed ${error}`)
+    }
+}

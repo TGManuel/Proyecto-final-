@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "273e9aa3-a41c-45da-b143-bf8b67efa1d0",
+		"name": "Users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42642521"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/tiendaOnline/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"tiendaOnline",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NkY2M0NjFjN2NjMGIzZmE4ODU1MzUiLCJpYXQiOjE3NDE1NDA0NTcsImV4cCI6MTc0MTU1ODQ1N30.64RDPCVC7QJEx7JeYBBHsmmGRU_dElSDwx4HScKJ7gQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"prueba\",\r\n    \"email\":\"prueba@gmail.com\",\r\n    \"password\":\"1234567\",\r\n    \"role\":\"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/tiendaOnline/users/update/67c2ad87d30db955ec2dd4e8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"tiendaOnline",
+						"users",
+						"update",
+						"67c2ad87d30db955ec2dd4e8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NkY2M0NjFjN2NjMGIzZmE4ODU1MzUiLCJpYXQiOjE3NDE1NjM0OTMsImV4cCI6MTc0MTU4MTQ5M30.pK-Tv1OUDchF1Vk5JxVsu3ktItYMDN2jCZ_8CmZbX54",
+						"type": "text"
+					},
+					{
+						"key": "_id",
+						"value": "67cdcc461c7cc0b3fa885535",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"confirm\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/tiendaOnline/users/delete/67c2a5f7050b594f9ff6964f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"tiendaOnline",
+						"users",
+						"delete",
+						"67c2a5f7050b594f9ff6964f"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
